@@ -8,6 +8,7 @@ package transfer.files.to.server.gui;
 
 import javax.swing.JButton;
 
+
 public class Buttons {
 	
 	public static final Integer width=200;
@@ -21,6 +22,7 @@ public class Buttons {
 		JButton button = new JButton();
 		button.setSize(width,height);
 		button.setVisible(visible);
+		button.setText("Find source server:");
 		return button;
 	}
 
