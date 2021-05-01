@@ -29,5 +29,17 @@ public class Buttons {
 		
 		return button;
 	}
+	/***
+	 * Create another jbutton
+	 * @return created jbutton
+	 */
+	public static JButton createAnotherButton() {
+		JButton button = new JButton();
+		button.setSize(width,height);
+		button.setVisible(visible);
+		button.setText("Select project:");
+		
+		return button;
+	}
 	
 }

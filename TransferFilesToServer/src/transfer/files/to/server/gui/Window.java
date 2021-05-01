@@ -26,9 +26,37 @@ public class Window {
      * Frame will not be possible to maximize.
      *  Activate new window after button is clicked.
      * Add button from buttons class to the jframe.
+     * Close first frame after second is opened.
      */
 	public static void createFrame() {
 		JButton button = Buttons.createButton();
+		JFrame frame = new JFrame("Transfer files to server");
+		frame.setMaximumSize(new Dimension(width, height));
+		frame.setMinimumSize(new Dimension(500, 500));
+		//JLabel label = new JLabel("New label");
+		//label.setPreferredSize(new Dimension(width,height));
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setLayout(new FlowLayout());
+		frame.getContentPane().add(button,BorderLayout.CENTER);
+		frame.pack();
+		frame.setVisible(true);
+		
+	    button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				createAnotherFrame();
+				
+				
+			}});
+	}
+	/***
+	 * Create another frame after first button is clicked.
+	 */
+	public static void createAnotherFrame() {
+		JButton button = Buttons.createAnotherButton();
 		JFrame frame = new JFrame("Transfer files to server");
 		frame.setMaximumSize(new Dimension(width, height));
 		frame.setMinimumSize(new Dimension(500, 500));
@@ -40,14 +68,6 @@ public class Window {
 		frame.getContentPane().add(button,BorderLayout.CENTER);
 		frame.pack();
 		frame.setVisible(true);
-		
-	    button.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				createFrame(); 
-				
-			}});
 	}
 }
 	    
