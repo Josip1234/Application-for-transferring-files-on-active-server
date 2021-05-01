@@ -3,6 +3,8 @@ package transfer.files.to.server.gui;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +24,7 @@ public class Window {
      * Default minimum size of frame window is 500x500, maximum 800x600.
      * Flow layout is added to prevent big button to show on jframe.
      * Frame will not be possible to maximize.
+     *  Activate new window after button is clicked.
      * Add button from buttons class to the jframe.
      */
 	public static void createFrame() {
@@ -37,6 +40,14 @@ public class Window {
 		frame.getContentPane().add(button,BorderLayout.CENTER);
 		frame.pack();
 		frame.setVisible(true);
-	
+		
+	    button.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				createFrame(); 
+				
+			}});
+	}
 }
-}
+	    

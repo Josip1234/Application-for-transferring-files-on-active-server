@@ -6,6 +6,9 @@ package transfer.files.to.server.gui;
  *
  */
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 
@@ -23,7 +26,8 @@ public class Buttons {
 		button.setSize(width,height);
 		button.setVisible(visible);
 		button.setText("Find source server:");
+		
 		return button;
 	}
-
+	
 }
