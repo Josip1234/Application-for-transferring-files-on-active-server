@@ -63,8 +63,8 @@ public class Window {
 	 */
 	public static void createAnotherFrame(String folder) {
 		System.out.println(folder);
-		String folder2="";
-		JButton button = Buttons.createAnotherButton();
+		
+		JButton button2 = Buttons.createAnotherButton();
 		JFrame frame = new JFrame("Transfer files to server");
 		frame.setMaximumSize(new Dimension(width, height));
 		frame.setMinimumSize(new Dimension(500, 500));
@@ -73,11 +73,21 @@ public class Window {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
-		frame.getContentPane().add(button,BorderLayout.CENTER);
-		folder2=FolderChooser.chooseFolder(frame);
-		System.out.println(folder2);
+		frame.getContentPane().add(button2,BorderLayout.CENTER);
+		
 		frame.pack();
 		frame.setVisible(true);
+		
+	    button2.addActionListener(new ActionListener() {
+			
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					frame.setVisible(false);
+					String folder2=FolderChooser.chooseFolder(frame);
+					System.out.println(folder2);
+					
+					
+				}});
 	}
 }
 	    

@@ -25,7 +25,7 @@ public class Buttons {
 		JButton button = new JButton();
 		button.setSize(width,height);
 		button.setVisible(visible);
-		button.setText("Find source server:");
+		button.setText("Find folder to copy:");
 		
 		return button;
 	}
@@ -37,7 +37,7 @@ public class Buttons {
 		JButton button = new JButton();
 		button.setSize(width,height);
 		button.setVisible(visible);
-		button.setText("Select project:");
+		button.setText("Select active server:");
 		
 		return button;
 	}
