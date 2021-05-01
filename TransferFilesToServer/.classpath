@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/Korisnik/Desktop/xamppwith7.4.5.php/htdocs/cs/CopyScript/jar/v1/CopyScriptv1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
