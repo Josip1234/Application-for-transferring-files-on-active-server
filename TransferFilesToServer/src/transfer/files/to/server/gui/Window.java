@@ -25,6 +25,8 @@ public class Window {
      * Flow layout is added to prevent big button to show on jframe.
      * Frame will not be possible to maximize.
      *  Activate new window after button is clicked.
+     *  Choose folder where server is located.
+     * Close frame.  
      * Add button from buttons class to the jframe.
      * Close first frame after second is opened.
      */
@@ -47,15 +49,21 @@ public class Window {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				createAnotherFrame();
+				String folder=FolderChooser.chooseFolder(frame);
+				createAnotherFrame(folder);
 				
 				
 			}});
 	}
 	/***
+	 * @param folder - receive folder path
 	 * Create another frame after first button is clicked.
+	 * Choose project folder.
+	 * 
 	 */
-	public static void createAnotherFrame() {
+	public static void createAnotherFrame(String folder) {
+		System.out.println(folder);
+		String folder2="";
 		JButton button = Buttons.createAnotherButton();
 		JFrame frame = new JFrame("Transfer files to server");
 		frame.setMaximumSize(new Dimension(width, height));
@@ -66,6 +74,8 @@ public class Window {
 		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
 		frame.getContentPane().add(button,BorderLayout.CENTER);
+		folder2=FolderChooser.chooseFolder(frame);
+		System.out.println(folder2);
 		frame.pack();
 		frame.setVisible(true);
 	}
