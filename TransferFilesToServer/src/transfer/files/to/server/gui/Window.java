@@ -21,6 +21,7 @@ public class Window {
      * Add window with default 800x600 dimesion, with default close operation.
      * Default minimum size of frame window is 500x500, maximum 800x600.
      * Flow layout is added to prevent big button to show on jframe.
+     * Frame will not be possible to maximize.
      * Add button from buttons class to the jframe.
      */
 	public static void createFrame() {
@@ -31,6 +32,7 @@ public class Window {
 		//JLabel label = new JLabel("New label");
 		//label.setPreferredSize(new Dimension(width,height));
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
 		frame.getContentPane().add(button,BorderLayout.CENTER);
 		frame.pack();
