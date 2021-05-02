@@ -68,7 +68,7 @@ public class Window {
 	public static void createAnotherFrame(String folder) {
 		ScanDirectory directory = new ScanDirectory();
 		List<String> filesInDirectory=directory.returnFilePathsFromSource(folder);
-		filesInDirectory.forEach(System.out::println);
+		//filesInDirectory.forEach(System.out::println);
 		JButton button2 = Buttons.createAnotherButton();
 		JFrame frame = new JFrame("Transfer files to server");
 		frame.setMaximumSize(new Dimension(width, height));
