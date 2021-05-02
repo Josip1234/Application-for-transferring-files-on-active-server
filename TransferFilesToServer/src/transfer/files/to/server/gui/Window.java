@@ -5,10 +5,13 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import transfer.files.to.server.algorithms.ScanDirectory;
 
 /***
  * 
@@ -59,11 +62,13 @@ public class Window {
 	 * @param folder - receive folder path
 	 * Create another frame after first button is clicked.
 	 * Choose project folder.
+	 * After source folder is chosen, scan directory to obtain list of files to copy to active server.
 	 * 
 	 */
 	public static void createAnotherFrame(String folder) {
-		System.out.println(folder);
-		
+		ScanDirectory directory = new ScanDirectory();
+		List<String> filesInDirectory=directory.returnFilePathsFromSource(folder);
+		filesInDirectory.forEach(System.out::println);
 		JButton button2 = Buttons.createAnotherButton();
 		JFrame frame = new JFrame("Transfer files to server");
 		frame.setMaximumSize(new Dimension(width, height));

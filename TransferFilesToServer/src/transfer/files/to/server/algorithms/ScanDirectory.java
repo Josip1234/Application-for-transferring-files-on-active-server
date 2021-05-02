@@ -27,7 +27,7 @@ public class ScanDirectory {
 		List<String> files = new ArrayList<String>();
 		try {
 			Stream<Path> path = Files.walk(Paths.get(directoryToScan));
-			List<String> result = path.filter(Files::isRegularFile).map(x -> x.toString()).collect(Collectors.toList());
+			List<String> result = path.map(x -> x.toString()).collect(Collectors.toList());
 			files=result;
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
