@@ -5,12 +5,14 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import transfer.files.to.server.algorithms.CopyFiles;
 import transfer.files.to.server.algorithms.ScanDirectory;
 
 /***
@@ -66,6 +68,8 @@ public class Window {
 	 * 
 	 */
 	public static void createAnotherFrame(String folder) {
+		String source=folder;
+		System.out.println(source);
 		ScanDirectory directory = new ScanDirectory();
 		List<String> filesInDirectory=directory.returnFilePathsFromSource(folder);
 		//filesInDirectory.forEach(System.out::println);
@@ -75,7 +79,7 @@ public class Window {
 		frame.setMinimumSize(new Dimension(500, 500));
 		//JLabel label = new JLabel("New label");
 		//label.setPreferredSize(new Dimension(width,height));
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLayout(new FlowLayout());
 		frame.getContentPane().add(button2,BorderLayout.CENTER);
@@ -89,10 +93,19 @@ public class Window {
 				public void actionPerformed(ActionEvent e) {
 					frame.setVisible(false);
 					String folder2=FolderChooser.chooseFolder(frame);
-					System.out.println(folder2);
+					String destination=folder2;
+					CopyFiles copyFiles = new CopyFiles();
+					try {
+						copyFiles.copyFiles(source, destination);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					
 					
 				}});
 	}
+	
+	
 }
 	    
