@@ -86,11 +86,13 @@ public class Window {
 		
 		frame.pack();
 		frame.setVisible(true);
-		
+		//after destiunation is chosen, ask user if he really wants to copy those files.
 	    button2.addActionListener(new ActionListener() {
 			
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					DialogBox box = new DialogBox();
+					box.showDialogBox();
 					frame.setVisible(false);
 					String folder2=FolderChooser.chooseFolder(frame);
 					String destination=folder2;
