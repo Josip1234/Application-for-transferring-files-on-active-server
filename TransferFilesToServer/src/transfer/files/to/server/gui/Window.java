@@ -65,7 +65,7 @@ public class Window {
 	 * Create another frame after first button is clicked.
 	 * Choose project folder.
 	 * After source folder is chosen, scan directory to obtain list of files to copy to active server.
-	 * 
+	 * if files are successfull copied, return successfull message if not return unsuccessfull message.
 	 */
 	public static void createAnotherFrame(String folder) {
 		String source=folder;

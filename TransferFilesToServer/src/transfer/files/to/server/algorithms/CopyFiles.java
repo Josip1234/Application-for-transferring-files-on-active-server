@@ -29,6 +29,7 @@ public class CopyFiles {
 		File sourceFile = new File(source.replace('\\', '/'));
 		File destinationFile=new File(destination.replace('\\', '/'));
 		FileUtils.copyDirectory(sourceFile, destinationFile);
+		successfull=true;
 		return successfull;
 	}
 
