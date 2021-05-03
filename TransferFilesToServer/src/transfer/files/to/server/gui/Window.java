@@ -69,7 +69,7 @@ public class Window {
 	 */
 	public static void createAnotherFrame(String folder) {
 		String source=folder;
-		System.out.println(source);
+		//System.out.println(source);
 		ScanDirectory directory = new ScanDirectory();
 		List<String> filesInDirectory=directory.returnFilePathsFromSource(folder);
 		//filesInDirectory.forEach(System.out::println);
@@ -96,7 +96,15 @@ public class Window {
 					String destination=folder2;
 					CopyFiles copyFiles = new CopyFiles();
 					try {
-						copyFiles.copyFiles(source, destination);
+						boolean isItCopied=false;
+						isItCopied=copyFiles.copyFiles(source, destination);
+						if(isItCopied==true) {
+							System.out.println("Files successfully copied.");
+							System.exit(0);
+						}else {
+							System.out.println("Files are not copied.");
+						}
+						
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
