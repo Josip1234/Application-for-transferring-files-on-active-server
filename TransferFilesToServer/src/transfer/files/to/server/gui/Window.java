@@ -11,6 +11,9 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 import transfer.files.to.server.algorithms.CopyFiles;
 import transfer.files.to.server.algorithms.ScanDirectory;
@@ -72,6 +75,22 @@ public class Window {
 		//System.out.println(source);
 		ScanDirectory directory = new ScanDirectory();
 		List<String> filesInDirectory=directory.returnFilePathsFromSource(folder);
+		//list file structure in new window as jtree
+		JFrame frame2 = new JFrame();
+		DefaultMutableTreeNode list = new DefaultMutableTreeNode("list");
+		for (String string : filesInDirectory) {
+			DefaultMutableTreeNode list2 = new DefaultMutableTreeNode(string);
+			list.add(list2);
+		}
+		JTree tree = new JTree(list);
+		frame2.add(tree);
+		frame2.add(new JScrollPane(tree), BorderLayout.CENTER);
+		frame2.setSize(width, height);
+		frame2.setVisible(true);
+		
+		
+		
+		//
 		//filesInDirectory.forEach(System.out::println);
 		JButton button2 = Buttons.createAnotherButton();
 		JFrame frame = new JFrame("Transfer files to server");
