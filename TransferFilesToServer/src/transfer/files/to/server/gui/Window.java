@@ -22,8 +22,8 @@ import transfer.files.to.server.algorithms.ScanDirectory;
  *
  */
 public class Window {
-    public static final Integer width=800;
-    public static final Integer height=600;
+    public static final Integer width=300;
+    public static final Integer height=300;
     /****
      * Add window with default 800x600 dimesion, with default close operation.
      * Default minimum size of frame window is 500x500, maximum 800x600.
@@ -39,7 +39,7 @@ public class Window {
 		JButton button = Buttons.createButton();
 		JFrame frame = new JFrame("Transfer files to server");
 		frame.setMaximumSize(new Dimension(width, height));
-		frame.setMinimumSize(new Dimension(500, 500));
+		frame.setMinimumSize(new Dimension(width, height));
 		//JLabel label = new JLabel("New label");
 		//label.setPreferredSize(new Dimension(width,height));
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -76,7 +76,7 @@ public class Window {
 		JButton button2 = Buttons.createAnotherButton();
 		JFrame frame = new JFrame("Transfer files to server");
 		frame.setMaximumSize(new Dimension(width, height));
-		frame.setMinimumSize(new Dimension(500, 500));
+		frame.setMinimumSize(new Dimension(width, height));
 		//JLabel label = new JLabel("New label");
 		//label.setPreferredSize(new Dimension(width,height));
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
