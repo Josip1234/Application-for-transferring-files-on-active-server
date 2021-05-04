@@ -32,7 +32,7 @@ public class DialogBox{
 		}else {
 			System.exit(0);
 		}
-		frame.setVisible(true);
+		//frame.setVisible(true);
 		return true;
 	}
 
