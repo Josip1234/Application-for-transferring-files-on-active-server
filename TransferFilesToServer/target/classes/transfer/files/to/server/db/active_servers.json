@@ -1,4 +1,8 @@
-{
-  "server_name":"xampp",
-  "server_path":"C:\\Users\\Korisnik\\Desktop\\nx\\htdocs"
-}
+[
+   {
+      "server0":{
+         "server_name":"xampp",
+         "server_path":"C:\\Users\\Korisnik\\Desktop\\nx\\htdocs"
+      }
+   }
+]

@@ -1,4 +1,10 @@
 package transfer.files.to.server.algorithms;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /***
  * 
  * @author Josip Bošnjak
@@ -10,5 +16,15 @@ package transfer.files.to.server.algorithms;
  *
  */
 public class ProcessJson {
+	/***
+	 * 
+	 * @return list of key values of the servers.
+	 */
+	public List<Map> returnListOfKeyValuesFromJson(){
+		Map<String, String> servers=new HashMap<String, String>();
+		List<Map> listOfServers = new ArrayList<Map>();
+		return listOfServers;
+	}
+	
 
 }
