@@ -6,7 +6,8 @@ import transfer.files.to.server.gui.Window;
 public class Main {
 
 	public static void main(String[] args) {
-		Window.createFrame();
+		//Window.createFrame();
+		ProcessJson.returnListOfKeyValuesFromJson();
 
 	}
 
