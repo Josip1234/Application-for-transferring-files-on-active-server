@@ -1,9 +1,17 @@
 package transfer.files.to.server.algorithms;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import transfer.files.to.server.db.ActiveServer;
 
 /***
  * 
@@ -16,6 +24,9 @@ import java.util.Map;
  *
  */
 public class ProcessJson {
+	
+	
+	
 	/***
 	 * 
 	 * @return list of key values of the servers.
@@ -23,6 +34,8 @@ public class ProcessJson {
 	public List<Map> returnListOfKeyValuesFromJson(){
 		Map<String, String> servers=new HashMap<String, String>();
 		List<Map> listOfServers = new ArrayList<Map>();
+	
+
 		return listOfServers;
 	}
 	
