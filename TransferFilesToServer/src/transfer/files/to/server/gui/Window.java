@@ -16,6 +16,7 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import transfer.files.to.server.algorithms.CopyFiles;
+import transfer.files.to.server.algorithms.DeleteFiles;
 import transfer.files.to.server.algorithms.ScanDirectory;
 
 /***
@@ -121,6 +122,8 @@ public class Window {
 						isItCopied=copyFiles.copyFiles(source, destination);
 						if(isItCopied==true) {
 							System.out.println("Files successfully copied.");
+							DeleteFiles files = new DeleteFiles();
+							files.deleteFilesFromServer(destination);
 							System.exit(0);
 						}else {
 							System.out.println("Files are not copied.");
