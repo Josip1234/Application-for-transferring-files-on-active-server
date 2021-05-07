@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,6 +30,7 @@ import transfer.files.to.server.algorithms.ScanDirectory;
 public class Window {
     public static final Integer width=300;
     public static final Integer height=300;
+    public static final String serverWord="\\bhtdocs\\b";
     /****
      * Add window with default 800x600 dimesion, with default close operation.
      * Default minimum size of frame window is 500x500, maximum 800x600.
@@ -115,6 +118,20 @@ public class Window {
 					box.showDialogBox();
 					frame.setVisible(false);
 					String folder2=FolderChooser.chooseFolder(frame);
+					//if there is htdocs copy files else dont
+					Pattern pattern = Pattern.compile(serverWord);
+					Matcher matcher = pattern.matcher(folder2);
+					boolean found=false;
+					while (matcher.find())
+					{
+					    System.out.print("Start index: " + matcher.start());
+					    System.out.print(" End index: " + matcher.end() + " ");
+					    System.out.println(matcher.group());
+					    found=true;
+					}
+					
+					
+					if(found==true) {
 					String destination=folder2;
 					CopyFiles copyFiles = new CopyFiles();
 					try {
@@ -123,7 +140,7 @@ public class Window {
 						if(isItCopied==true) {
 							System.out.println("Files successfully copied.");
 							DeleteFiles files = new DeleteFiles();
-							files.deleteFilesFromServer(destination);
+							//files.deleteFilesFromServer(destination);
 							System.exit(0);
 						}else {
 							System.out.println("Files are not copied.");
@@ -133,11 +150,15 @@ public class Window {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					
+					}else {
+						System.exit(0);
+					}
 					
 				}});
+	    }
+	    
 	}
 	
 	
-}
+
 	    
