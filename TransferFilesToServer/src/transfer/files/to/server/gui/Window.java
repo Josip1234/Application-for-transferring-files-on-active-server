@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -28,8 +29,8 @@ import transfer.files.to.server.algorithms.ScanDirectory;
  *
  */
 public class Window {
-    public static final Integer width=300;
-    public static final Integer height=300;
+    public static final Integer width=250;
+    public static final Integer height=80;
     public static final String serverWord="\\bhtdocs\\b";
     /****
      * Add window with default 800x600 dimesion, with default close operation.
@@ -138,12 +139,10 @@ public class Window {
 						boolean isItCopied=false;
 						isItCopied=copyFiles.copyFiles(source, destination);
 						if(isItCopied==true) {
-							System.out.println("Files successfully copied.");
+							JOptionPane.showMessageDialog(frame, "Files successfully copied.");
 							DeleteFiles files = new DeleteFiles();
 							//files.deleteFilesFromServer(destination);
 							System.exit(0);
-						}else {
-							System.out.println("Files are not copied.");
 						}
 						
 					} catch (IOException e1) {
@@ -151,6 +150,7 @@ public class Window {
 						e1.printStackTrace();
 					}
 					}else {
+						JOptionPane.showMessageDialog(frame,"Not server folder!" ,"Error",JOptionPane.ERROR_MESSAGE);
 						System.exit(0);
 					}
 					
