@@ -29,7 +29,7 @@ import transfer.files.to.server.algorithms.ScanDirectory;
  *
  */
 public class Window {
-    public static final Integer width=250;
+    public static final Integer width=300;
     public static final Integer height=80;
     public static final String serverWord="\\bhtdocs\\b";
     /****
@@ -81,7 +81,7 @@ public class Window {
 		ScanDirectory directory = new ScanDirectory();
 		List<String> filesInDirectory=directory.returnFilePathsFromSource(folder);
 		//list file structure in new window as jtree
-		JFrame frame2 = new JFrame();
+		JFrame frame2 = new JFrame("List of files and folders");
 		DefaultMutableTreeNode list = new DefaultMutableTreeNode("list");
 		for (String string : filesInDirectory) {
 			DefaultMutableTreeNode list2 = new DefaultMutableTreeNode(string);
@@ -90,7 +90,7 @@ public class Window {
 		JTree tree = new JTree(list);
 		frame2.add(tree);
 		frame2.add(new JScrollPane(tree), BorderLayout.CENTER);
-		frame2.setSize(width, height);
+		frame2.setSize(500, 500);
 		frame2.setVisible(true);
 		
 		
