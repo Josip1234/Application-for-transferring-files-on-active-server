@@ -82,7 +82,7 @@ public class Window {
 		List<String> filesInDirectory=directory.returnFilePathsFromSource(folder);
 		//list file structure in new window as jtree
 		JFrame frame2 = new JFrame("List of files and folders");
-		DefaultMutableTreeNode list = new DefaultMutableTreeNode("list");
+		DefaultMutableTreeNode list = new DefaultMutableTreeNode("List of files");
 		for (String string : filesInDirectory) {
 			DefaultMutableTreeNode list2 = new DefaultMutableTreeNode(string);
 			list.add(list2);
