@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -135,9 +136,12 @@ public class Window {
 					if(found==true) {
 					String destination=folder2;
 					CopyFiles copyFiles = new CopyFiles();
+					JFrame frameProgress = new JFrame("Progress...");
+					frameProgress.setMaximumSize(new Dimension(width, height));
+					frameProgress.setMinimumSize(new Dimension(width, height));
 					try {
 						boolean isItCopied=false;
-						isItCopied=copyFiles.copyFiles(source, destination);
+						isItCopied=copyFiles.copyFiles(source, destination, frameProgress);
 						if(isItCopied==true) {
 							JOptionPane.showMessageDialog(frame, "Files successfully copied.");
 							DeleteFiles files = new DeleteFiles();
