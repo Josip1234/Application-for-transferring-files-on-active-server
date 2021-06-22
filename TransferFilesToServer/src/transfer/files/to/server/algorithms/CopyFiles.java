@@ -54,12 +54,14 @@ public class CopyFiles {
 		            if(sourceFile.list().length >= ONE_PERCENT){
                         currentPercent++;
                         bar.setValue(currentPercent);
+                        bar.setVisible(true);
                         currentSize = 0;
                     } else {
                         currentSize = currentSize + sourceFile.list().length;
                         if(currentSize >= ONE_PERCENT){
                             currentPercent++;
                             bar.setValue(currentPercent);
+                            bar.setVisible(true);
                             currentSize = 0;
                         }
                     }
