@@ -1,0 +1,1 @@
+java -jar "C:\Users\Korisnik\Desktop\xamppwith7.4.5.php\htdocs\bs\Application-for-transferring-files-on-active-server\TransferFilesToServer\jarandbatfiles\transfer.jar"
